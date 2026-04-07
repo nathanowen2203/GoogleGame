@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --g-blue:   #4285F4;
+  --g-green:  #34A853;
+  --g-red:    #EA4335;
+  --g-yellow: #FBBC05;
+  --glass-bg:     rgba(8, 12, 24, 0.55);
+  --glass-border: rgba(255, 255, 255, 0.10);
+  --glass-hover:  rgba(255, 255, 255, 0.16);
+  --text:  #f0f4f8;
+  --muted: rgba(240, 244, 248, 0.50);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #080c14;
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── Glass ───────────────────────────────────────────────────────────────── */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--glass-border);
+}
+
+/* ── Bar fill ────────────────────────────────────────────────────────────── */
+@keyframes barFill {
+  from { width: 0 }
+  to   { width: var(--w) }
+}
+.bar-anim {
+  animation: barFill 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  width: var(--w);
+}
+
+/* ── Shimmer ─────────────────────────────────────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -200% 0 }
+  100% { background-position:  200% 0 }
+}
+
+/* ── Home screen: scrolling keyword typography ───────────────────────────── */
+@keyframes kwScrollLeft {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes kwScrollRight {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
